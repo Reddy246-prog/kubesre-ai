@@ -1,0 +1,70 @@
+[
+  {
+    "namespace": "default",
+    "node": "ai-agent1-control-plane",
+    "pod": "broken-nginx",
+    "status": "ImagePullBackOff",
+    "collected_at": "2026-06-14T11:31:02.938064",
+    "restart_count": 0,
+    "memory_bytes": 221184,
+    "logs": "No logs available",
+    "events": [
+      {
+        "reason": "Pulling",
+        "message": "Pulling image \"nginx:doesnotexist\""
+      },
+      {
+        "reason": "Failed",
+        "message": "Failed to pull image \"nginx:doesnotexist\": rpc error: code = NotFound desc = failed to pull and unpack image \"docker.io/library/nginx:doesnotexist\": failed to resolve reference \"docker.io/library/nginx:doesnotexist\": docker.io/library/nginx:doesnotexist: not found"
+      },
+      {
+        "reason": "BackOff",
+        "message": "Back-off pulling image \"nginx:doesnotexist\""
+      },
+      {
+        "reason": "Failed",
+        "message": "Error: ImagePullBackOff"
+      }
+    ]
+  },
+  {
+    "namespace": "default",
+    "node": "ai-agent1-control-plane",
+    "pod": "crash-demo",
+    "status": "CrashLoopBackOff",
+    "collected_at": "2026-06-14T11:31:02.954639",
+    "restart_count": 52,
+    "memory_bytes": 233472,
+    "logs": "b''",
+    "events": [
+      {
+        "reason": "Pulling",
+        "message": "Pulling image \"busybox\""
+      },
+      {
+        "reason": "BackOff",
+        "message": "Back-off restarting failed container app in pod crash-demo_default(ac10508c-1298-4f71-8d38-36f5ff22fd6e)"
+      }
+    ]
+  },
+  {
+    "namespace": "default",
+    "node": "ai-agent1-control-plane",
+    "pod": "db-fail-demo",
+    "status": "CrashLoopBackOff",
+    "collected_at": "2026-06-14T11:31:02.967708",
+    "restart_count": 52,
+    "memory_bytes": 237568,
+    "logs": "b'Database connection failed\\nApplication startup failed\\n'",
+    "events": [
+      {
+        "reason": "Pulling",
+        "message": "Pulling image \"busybox\""
+      },
+      {
+        "reason": "BackOff",
+        "message": "Back-off restarting failed container app in pod db-fail-demo_default(42d05a08-572e-4258-99b3-7b54eb28328d)"
+      }
+    ]
+  }
+]
